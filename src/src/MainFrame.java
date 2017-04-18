@@ -299,8 +299,6 @@ public class MainFrame extends javax.swing.JFrame {
         menuBar = new javax.swing.JPanel();
         jExit = new javax.swing.JLabel();
         jInstruction = new javax.swing.JLabel();
-        jAbout = new javax.swing.JLabel();
-        jContact = new javax.swing.JLabel();
         flight_preference = new javax.swing.JPanel();
         jTitle = new javax.swing.JLabel();
         jDepartureLabel = new javax.swing.JLabel();
@@ -646,7 +644,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(hotel_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         hotel_resultLayout.setVerticalGroup(
             hotel_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -734,15 +732,11 @@ public class MainFrame extends javax.swing.JFrame {
         jInstruction.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jInstruction.setForeground(new java.awt.Color(255, 255, 255));
         jInstruction.setText("Instruction");
-
-        jAbout.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jAbout.setForeground(new java.awt.Color(255, 255, 255));
-        jAbout.setText("About");
-
-        jContact.setBackground(new java.awt.Color(255, 255, 255));
-        jContact.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jContact.setForeground(new java.awt.Color(255, 255, 255));
-        jContact.setText("Contact");
+        jInstruction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jInstructionMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
         menuBar.setLayout(menuBarLayout);
@@ -751,11 +745,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jContact, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 916, Short.MAX_VALUE)
                 .addComponent(jExit)
                 .addGap(27, 27, 27))
         );
@@ -768,10 +758,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jExit))
                     .addGroup(menuBarLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jContact)
-                            .addComponent(jAbout)
-                            .addComponent(jInstruction))))
+                        .addComponent(jInstruction)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1092,6 +1079,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
     }//GEN-LAST:event_tourListMousePressed
 
+    private void jInstructionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jInstructionMousePressed
+        Instruction a = new Instruction(this, true);
+        a.setVisible(true);
+    }//GEN-LAST:event_jInstructionMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -1144,8 +1136,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> inbound_list;
     private javax.swing.JScrollPane inbound_scrollpane;
     private javax.swing.JLabel inbound_title;
-    private javax.swing.JLabel jAbout;
-    private javax.swing.JLabel jContact;
     private javax.swing.JPanel jDepartingCalendar;
     private javax.swing.JLabel jDepartingLabel;
     private javax.swing.JComboBox<String> jDepartureComboBox;

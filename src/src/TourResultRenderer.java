@@ -33,7 +33,7 @@ public class TourResultRenderer extends TourResult implements ListCellRenderer{
         
         DayTour tour = (DayTour) value;
         
-        getDay().setText(new SimpleDateFormat("dd. MMMM", Locale.ENGLISH).format(tour.getDate()));
+        getDay().setText((tour.getDate()));
         getPrice().setText(tour.getPrice() + " kr");
         getTourLocation().setText(tour.getLocation());
         getTourName().setText(tour.getNameOfTrip());
