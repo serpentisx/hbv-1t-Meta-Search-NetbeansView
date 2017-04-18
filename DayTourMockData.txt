@@ -1,0 +1,75 @@
+City Tour;2;Reykjavik;1200;01052017;8;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;01052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;01052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;01052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;01052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;01052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;01052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;01052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;02052017;2;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;02052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;02052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;02052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;02052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;02052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;02052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;02052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;03052017;1;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;03052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;03052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;03052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;03052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;03052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;03052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;03052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;04052017;5;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;04052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;04052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;04052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;04052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;04052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;04052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;04052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;05052017;2;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;05052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;05052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;05052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;05052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;05052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;05052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;05052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;06052017;5;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;06052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;06052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;06052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;06052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;06052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;06052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;06052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;07052017;4;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;07052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;07052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;07052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;07052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;07052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;07052017;13;9500;null;null;null;null;null
+Thingvellir Horse Riding;5;Thingvellir;0900;07052017;8;19900;null;null;null;null;null
+City Tour;2;Reykjavik;1200;08052017;2;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;08052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;08052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;08052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;08052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;08052017;10;9400;null;null;null;null;null
+Thingvellir Trip;8;Reykjavik;1100;08052017;13;9500;null;null;null;null;null
+City Tour;2;Reykjavik;1200;09052017;3;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;09052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;09052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;09052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;09052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;09052017;10;9400;null;null;null;null;null
+City Tour;2;Reykjavik;1200;10052017;6;10000;null;null;null;null;null
+Golden Circle Tour;10;Reykjavik;1000;10052017;10;15990;null;null;null;null;null
+Whale Watching;5;Reykjavik;1100;10052017;10;12990;null;null;null;null;null
+Hveragerdi Tour;3;Hveragerdi;1200;10052017;10;7990;null;null;null;null;null
+Icelandic Food Tasting;2;Reykjavik;1800;10052017;5;4990;null;null;null;null;null
+Blue Lagoon;3;Reykjavik;1000;10052017;10;9400;null;null;null;null;null

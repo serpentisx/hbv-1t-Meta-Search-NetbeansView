@@ -1,0 +1,50 @@
+Center Hotel; RVK; 010517; 3; 6000
+Center Hotel; RVK; 020517; 2; 6000
+Center Hotel; RVK; 030517; 2; 6000
+Center Hotel; RVK; 040517; 5; 6000
+Center Hotel; RVK; 050517; 5; 6000
+Center Hotel; RVK; 060517; 5; 6000
+Center Hotel; RVK; 070517; 4; 6000
+Center Hotel; RVK; 080517; 4; 6000
+Center Hotel; RVK; 090517; 2; 6000
+Center Hotel; RVK; 100517; 1; 6000
+A Tower Hotel; RVK; 010517; 6; 5000
+A Tower Hotel; RVK; 020517; 6; 5000
+A Tower Hotel; RVK; 030517; 6; 5000
+A Tower Hotel; RVK; 040517; 3; 5000
+A Tower Hotel; RVK; 050517; 4; 5000
+A Tower Hotel; RVK; 060517; 2; 5000
+A Tower Hotel; RVK; 070517; 5; 5000
+A Tower Hotel; RVK; 080517; 6; 5000
+A Tower Hotel; RVK; 090517; 6; 5000
+A Tower Hotel; RVK; 100517; 6; 5000
+Old Charm Reykjavik Apartments; RVK; 010517; 10; 6500
+Old Charm Reykjavik Apartments; RVK; 020517; 4; 6500
+Old Charm Reykjavik Apartments; RVK; 030517; 2; 6500
+Old Charm Reykjavik Apartments; RVK; 040517; 0; 6500
+Old Charm Reykjavik Apartments; RVK; 050517; 0; 6500
+Old Charm Reykjavik Apartments; RVK; 060517; 2; 6500
+Old Charm Reykjavik Apartments; RVK; 070517; 2; 6500
+Old Charm Reykjavik Apartments; RVK; 080517; 2; 6500
+Old Charm Reykjavik Apartments; RVK; 090517; 1; 6500
+Old Charm Reykjavik Apartments; RVK; 100517; 3; 6500
+Kvosin downtown Hotel; RVK; 010517; 2; 7000
+Kvosin downtown Hotel; RVK; 020517; 1; 7000
+Kvosin downtown Hotel; RVK; 030517; 3; 7000
+Kvosin downtown Hotel; RVK; 040517; 2; 7000
+Kvosin downtown Hotel; RVK; 050517; 1; 7000
+Kvosin downtown Hotel; RVK; 060517; 2; 7000
+Kvosin downtown Hotel; RVK; 070517; 6; 7000
+Kvosin downtown Hotel; RVK; 080517; 5; 7000
+Kvosin downtown Hotel; RVK; 090517; 2; 7000
+Kvosin downtown Hotel; RVK; 100517; 2; 7000
+Hotel Odinsve; RVK; 010517; 5; 4500
+Hotel Odinsve; RVK; 020517; 5; 4500
+Hotel Odinsve; RVK; 030517; 5; 4500
+Hotel Odinsve; RVK; 040517; 8; 4500
+Hotel Odinsve; RVK; 050517; 3; 4500
+Hotel Odinsve; RVK; 060517; 3; 4500
+Hotel Odinsve; RVK; 070517; 3; 4500
+Hotel Odinsve; RVK; 080517; 2; 4500
+Hotel Odinsve; RVK; 090517; 2; 4500
+Hotel Odinsve; RVK; 100517; 2; 4500
