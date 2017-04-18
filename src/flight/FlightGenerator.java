@@ -41,7 +41,7 @@ public class FlightGenerator {
         if (origin.contains("Iceland")) {
             return searchInboundFlights(departing, destination, passengers);
         }
-        return searchOutboundFlights(departing, destination, passengers);
+        return searchOutboundFlights(departing, origin, passengers);
     }
     
     public List<Flight> searchInboundFlights(Date departing, String destination, int passengers) {
@@ -101,17 +101,19 @@ public class FlightGenerator {
         for (Airport ap : airports) {
             LocalDate start = LocalDate.now();
             LocalDate end = start.plusDays(100);
+            
+            long randomTime = ((long) (Math.random() * 72)*600000) + 14400000;
             for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
-                long randomTime = ((long) (Math.random() * 43200000)) + 14400000;
+                long flightTime = (long) (Math.random() * 144)*600000;
                 int numberOfSeats = (int) (Math.random()*201 + 100);
                 long today = date.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-                long flightTime = (long) (Math.random() * 86400000);
+                
                 Date departure = new Date(today + flightTime);
                 Date arrival = new Date(today + flightTime + randomTime);
                 
                 int booked = (int) (Math.random()*numberOfSeats) + 1;
                 int available = numberOfSeats - booked; 
-                int price = (int) (Math.random()*1001); 
+                int price = (int) (Math.random()*1000)*100 + 20000; 
                 
                 String from = ap.getName() + " (" + ap.getAirportCode() + "), " + ap.getCountry();
                 String to = "Keflavik International Airport (KEF), Iceland";
@@ -131,17 +133,18 @@ public class FlightGenerator {
         for (Airport ap : airports) {
             LocalDate start = LocalDate.now();
             LocalDate end = start.plusDays(100);
+            long randomTime = ((long) (Math.random() * 72)*600000) + 14400000;
+
             for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
-                long randomTime = ((long) (Math.random() * 43200000)) + 14400000;
                 int numberOfSeats = (int) (Math.random()*201 + 100);
                 long today = date.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-                long flightTime = (long) (Math.random() * 86400000);
+                long flightTime = (long) (Math.random() * 144)*600000;
                 Date departure = new Date(today + flightTime);
                 Date arrival = new Date(today + flightTime + randomTime);
                 
                 int booked = (int) (Math.random()*numberOfSeats) + 1;
                 int available = numberOfSeats - booked; 
-                int price = (int) (Math.random()*1001); 
+                int price = (int) (Math.random()*1000)*100 + 20000; 
                 
                 String from = ap.getName() + " (" + ap.getAirportCode() + "), " + ap.getCountry();
                 String to = "Keflavik International Airport (KEF), Iceland";
