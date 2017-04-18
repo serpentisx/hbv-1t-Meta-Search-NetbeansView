@@ -32,6 +32,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 import flight.*;
 import hotel.*;
+import java.util.ArrayList;
 import tour.*;
 
 public class MainFrame extends javax.swing.JFrame {
