@@ -9,6 +9,9 @@
  * @author Notandi
  */
 package src;
+
+import javax.swing.JLabel;
+
 public class FlightResult extends javax.swing.JPanel {
 
     /**
@@ -38,10 +41,11 @@ public class FlightResult extends javax.swing.JPanel {
         weekday.setText("Fri");
         add(weekday, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, 30, -1));
 
-        price.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        price.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         price.setForeground(new java.awt.Color(153, 51, 0));
         price.setText("$ 250");
-        add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 80, 40));
+        price.setHorizontalAlignment(JLabel.CENTER);
+        add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 40));
 
         time.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
         time.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/departure-13x13-icon.png"))); // NOI18N

@@ -25,7 +25,10 @@ public class TravelPackage {
 	}
 
 	public int getTravellers() {
-		return travellers;
+            if(travellers <= 0) {
+                travellers = 1;
+            }
+            return travellers;
 	}
 
 	public Flight getOutbound() {
@@ -50,12 +53,13 @@ public class TravelPackage {
 	
 	public int calculatePrice() {
             try {
-               		
-		price =  outbound.getPrice() + inbound.getPrice();
-		// price += hotel.getPrice();
-		
+                price = 0;
+                if(outbound != null) price += outbound.getPrice();
+                if(inbound != null)  price += inbound.getPrice();
+                if(hotel != null)    price += hotel.getRating()*10000;
+                
 		for(int i = 0; i < tours.size(); i++) {
-			price += tours.get(i).getPrice();
+                    price += tours.get(i).getPrice();
 		} 
             }
             catch (NullPointerException e) {

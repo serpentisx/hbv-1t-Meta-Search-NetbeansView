@@ -35,7 +35,7 @@ public class FlightResultRenderer extends FlightResult implements ListCellRender
         
         getWeekday().setText(new SimpleDateFormat("EEE", Locale.ENGLISH).format(flight.getDepartureTime()));
         getDay().setText(new SimpleDateFormat("dd. MMMM", Locale.ENGLISH).format(flight.getDepartureTime()));
-        getPrice().setText("$ " + flight.getPrice());
+        getPrice().setText("ISK " + flight.getPrice());
         getTime().setText(departureTime + " - " + arrivalTime);
         
         return this;
