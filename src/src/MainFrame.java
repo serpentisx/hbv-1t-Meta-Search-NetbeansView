@@ -43,6 +43,7 @@ public class MainFrame extends javax.swing.JFrame {
     private SlidePanel sp = new SlidePanel();
     private JDatePickerImpl returnPicker;
     private JDatePickerImpl departPicker;
+	private List<Integer> toursSelected;
     private int xMouse;
     private int yMouse;
     private String customerName;
@@ -57,9 +58,14 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         manager = new PackageManager(new FlightGenerator("src/airportCodes.txt"), new HotelManager(true), new DayTourSearchMock(), null, new ReservationManager(), null);
-        generateComboboxModel();  
+        toursSelected = new ArrayList<>();
+		generateComboboxModel();  
         calendar();
         comboBox();
+    }
+	
+	public List<Integer> getSelectedTours() {
+        return toursSelected;
     }
     
     private void searchFlights() {
@@ -71,8 +77,11 @@ public class MainFrame extends javax.swing.JFrame {
             List<Flight> outbound = manager.searchFlights(getDepartDate(), origin, destination);
             List<Flight> inbound = manager.searchFlights(getReturnDate(), destination, origin);
             displayFlightResults(inbound, outbound);
-            scrollToDate(inbound_list, getReturnDate());
-            scrollToDate(outbound_list, getDepartDate());
+            Flight in = scrollToDate(inbound_list, getReturnDate());
+            Flight out = scrollToDate(outbound_list, getDepartDate());
+            manager.getPackage().setInbound(in);
+            manager.getPackage().setOutbound(out);
+            jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
             slideLeft();
         } catch (NullPointerException e) {
         	e.printStackTrace();
@@ -144,10 +153,15 @@ public class MainFrame extends javax.swing.JFrame {
         inbound_flight.setText("<html>" + to + t + from + "</html>");
     }
     
-    public void scrollToDate(JList list, Date date) {
+    public Flight scrollToDate(JList list, Date date) {
+        Flight flight = null;
         int index = getFlightIndexAt(date, (DefaultListModel) list.getModel());
+        if (index != -1) {
+            flight = (Flight) list.getModel().getElementAt(index);
+        }
         list.setSelectedIndex(index);
         list.ensureIndexIsVisible(index);
+        return flight;
     }
     
     public int getFlightIndexAt(Date d, DefaultListModel dl) {
@@ -728,7 +742,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tourList);
-        tourList.setCellRenderer(new TourResultRenderer());
+        tourList.setCellRenderer(new TourResultRenderer(this));
 
         javax.swing.GroupLayout tour_resultLayout = new javax.swing.GroupLayout(tour_result);
         tour_result.setLayout(tour_resultLayout);
@@ -1346,22 +1360,29 @@ public class MainFrame extends javax.swing.JFrame {
     private void outbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outbound_listMousePressed
         Flight selected = (Flight) ((DefaultListModel) outbound_list.getModel()).getElementAt(outbound_list.getSelectedIndex());
         manager.getPackage().setOutbound(selected);
-        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
     }//GEN-LAST:event_outbound_listMousePressed
 
     private void inbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inbound_listMousePressed
         Flight selected = (Flight) ((DefaultListModel) inbound_list.getModel()).getElementAt(inbound_list.getSelectedIndex());
         manager.getPackage().setInbound(selected);
-        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
     }//GEN-LAST:event_inbound_listMousePressed
 
     private void hotel_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotel_listMousePressed
         Hotel selected = (Hotel) ((DefaultListModel) hotel_list.getModel()).getElementAt(hotel_list.getSelectedIndex());
         manager.getPackage().setHotel(selected);
-        //jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
     }//GEN-LAST:event_hotel_listMousePressed
 
     private void tourListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tourListMousePressed
+        Integer selectedIndex = tourList.getSelectedIndex();
+        if(!toursSelected.contains(selectedIndex)) {
+            toursSelected.add(selectedIndex);
+        } else {
+            toursSelected.remove(selectedIndex);
+        }
+        
         DefaultListModel model = (DefaultListModel) tourList.getModel();
         DayTour selected = (DayTour) model.getElementAt(tourList.getSelectedIndex());
         if (!manager.getPackage().getDayTours().contains(selected)) {
@@ -1369,7 +1390,8 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             manager.getPackage().removeDayTour(selected);
         }
-        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+        
+        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
     }//GEN-LAST:event_tourListMousePressed
 
     private void jInstructionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jInstructionMousePressed
