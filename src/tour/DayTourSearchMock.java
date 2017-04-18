@@ -28,7 +28,7 @@ public class DayTourSearchMock implements DayTourSearch {
 			int price = Integer.parseInt(info[6]);
 			try {
 				Date d = format.parse(date);
-				if(d.before(returning) && d.after(arriving)) {
+				if(d.before(returning) && d.after(arriving) && num <= seats) {
 					DayTour tour = new DayTour(name, dur, loc, time, date, seats, price);
 					tours.add(tour);
 				}
