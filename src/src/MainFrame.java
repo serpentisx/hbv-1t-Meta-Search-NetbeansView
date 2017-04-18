@@ -32,6 +32,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 import flight.*;
 import hotel.*;
+import javax.swing.DefaultListCellRenderer;
 import tour.*;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -122,8 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void displayHotelResults(List<Hotel> hotels) {
     	DefaultListModel hotelModel = new DefaultListModel();
         addToListModel(hotels, hotelModel);
-        // missing view-variable hotelList
-        // hotelList.setModel(hotelModel); 
+        hotel_list.setModel(hotelModel); 
     }
     
     private void displayTourResults(List<DayTour> tours) {
@@ -225,6 +225,7 @@ public class MainFrame extends javax.swing.JFrame {
         //Adding new one
         result_container.add(a);
         result_container.repaint();
+        result_container.validate();
     }
     
     private void slideScrollBar(JScrollPane spane, int increment) {
@@ -288,9 +289,11 @@ public class MainFrame extends javax.swing.JFrame {
         inbound_flight = new javax.swing.JLabel();
         inbound_forward = new javax.swing.JLabel();
         hotel_result = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        hotel_list = new javax.swing.JList<>();
         tour_result = new javax.swing.JPanel();
-        tourScrollPanel = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tourList = new javax.swing.JList<>();
         preference_panel = new javax.swing.JPanel();
         menuBar = new javax.swing.JPanel();
@@ -342,8 +345,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Multiply_64px_1.png"))); // NOI18N
         jExit1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jExit1MouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jExit1MouseReleased(evt);
             }
         });
 
@@ -368,14 +371,14 @@ public class MainFrame extends javax.swing.JFrame {
         hotel_label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hotel-light-icon.png"))); // NOI18N
         hotel_label1.setText("Hotel");
         hotel_label1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                hotel_label1MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hotel_label1MousePressed(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 hotel_label1MouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                hotel_label1MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hotel_label1MouseEntered(evt);
             }
         });
 
@@ -409,7 +412,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("10000 USD");
+        jLabel3.setText("0");
 
         javax.swing.GroupLayout menuBar1Layout = new javax.swing.GroupLayout(menuBar1);
         menuBar1.setLayout(menuBar1Layout);
@@ -423,12 +426,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addComponent(hotel_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98)
-                .addComponent(day_tour_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addComponent(day_tour_label1)
+                .addGap(66, 66, 66)
                 .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(jExit1)
                 .addGap(27, 27, 27))
         );
@@ -468,6 +471,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         outbound_list.setFixedCellWidth(160);
         outbound_list.setVisibleRowCount(1);
+        outbound_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                outbound_listMousePressed(evt);
+            }
+        });
         outbound_scrollpane.setViewportView(outbound_list);
         outbound_list.setBorder(BorderFactory.createEmptyBorder());
         outbound_list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
@@ -496,6 +504,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         inbound_list.setFixedCellWidth(160);
         inbound_list.setVisibleRowCount(1);
+        inbound_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                inbound_listMousePressed(evt);
+            }
+        });
         inbound_scrollpane.setViewportView(inbound_list);
         inbound_list.setBorder(BorderFactory.createEmptyBorder());
         inbound_list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
@@ -560,7 +573,7 @@ public class MainFrame extends javax.swing.JFrame {
         flight_resultLayout.setVerticalGroup(
             flight_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, flight_resultLayout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(115, Short.MAX_VALUE)
                 .addGroup(flight_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, flight_resultLayout.createSequentialGroup()
                         .addGroup(flight_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,37 +617,69 @@ public class MainFrame extends javax.swing.JFrame {
 
         result_container.add(flight_result, "card2");
 
-        jLabel5.setText("This is Hotel");
+        hotel_result.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hotel-dark-icon-mini.png"))); // NOI18N
+        jLabel1.setText("Pick your hotel  ");
+
+        hotel_list.setFixedCellHeight(210);
+        hotel_list.setFixedCellWidth(370);
+        hotel_list.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
+        hotel_list.setVisibleRowCount(-1);
+        hotel_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hotel_listMousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(hotel_list);
+        hotel_list.setCellRenderer(new HotelResultRenderer());
+        hotel_list.setBorder(null);
+        hotel_list.setBorder(BorderFactory.createEmptyBorder());
 
         javax.swing.GroupLayout hotel_resultLayout = new javax.swing.GroupLayout(hotel_result);
         hotel_result.setLayout(hotel_resultLayout);
         hotel_resultLayout.setHorizontalGroup(
             hotel_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(hotel_resultLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(905, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(hotel_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         hotel_resultLayout.setVerticalGroup(
             hotel_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(hotel_resultLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))
         );
+
+        jLabel1.setHorizontalTextPosition(SwingConstants.LEFT);
+        jScrollPane2.getViewport().setOpaque(false);
+        jScrollPane2.setViewportBorder(null);
+        jScrollPane2.getVerticalScrollBar().setPreferredSize(new Dimension(7,7));
+        jScrollPane2.setBorder(BorderFactory.createEmptyBorder());
 
         result_container.add(hotel_result, "card3");
 
         tour_result.setBackground(new java.awt.Color(255, 255, 255));
 
-        tourScrollPanel.setMaximumSize(new java.awt.Dimension(880, 32767));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(880, 32767));
 
         tourList.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         tourList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tourList.setFixedCellWidth(220);
         tourList.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
         tourList.setVisibleRowCount(-1);
-        tourScrollPanel.setViewportView(tourList);
+        tourList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tourListMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tourList);
         tourList.setCellRenderer(new TourResultRenderer());
 
         javax.swing.GroupLayout tour_resultLayout = new javax.swing.GroupLayout(tour_result);
@@ -643,14 +688,14 @@ public class MainFrame extends javax.swing.JFrame {
             tour_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tour_resultLayout.createSequentialGroup()
                 .addGap(184, 184, 184)
-                .addComponent(tourScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         tour_resultLayout.setVerticalGroup(
             tour_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tour_resultLayout.createSequentialGroup()
                 .addContainerGap(111, Short.MAX_VALUE)
-                .addComponent(tourScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
@@ -680,8 +725,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Multiply_64px_1.png"))); // NOI18N
         jExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jExitMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jExitMouseReleased(evt);
             }
         });
 
@@ -792,18 +837,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLocationComboBox.setEditable(true);
         jLocationComboBox.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLocationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keflavik International Airport (KEF), Iceland" }));
-        jLocationComboBox.setBorder(null);
-        jLocationComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLocationComboBoxActionPerformed(evt);
-            }
-        });
 
         jDepartureComboBox.setEditable(true);
         jDepartureComboBox.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jDepartureComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bahamas, The", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cabo Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czechia" }));
         jDepartureComboBox.setSelectedIndex(-1);
-        jDepartureComboBox.setBorder(null);
 
         switch_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/switch-icon.png"))); // NOI18N
         switch_label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -929,10 +967,6 @@ public class MainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jExitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jExitMouseClicked
-
     private void menuBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
@@ -943,10 +977,6 @@ public class MainFrame extends javax.swing.JFrame {
         xMouse= evt.getX();
         yMouse= evt.getY();
     }//GEN-LAST:event_menuBarMousePressed
-
-    private void jExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jExit1MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jExit1MouseClicked
 
     private void menuBar1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBar1MouseDragged
         int x = evt.getXOnScreen();
@@ -992,7 +1022,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_day_tour_label1MouseExited
 
     private void day_tour_label1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_day_tour_label1MousePressed
-        change_preference_tab(tour_result);       
+        change_preference_tab(tour_result);
     }//GEN-LAST:event_day_tour_label1MousePressed
 
     private void search_labelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_labelMouseReleased
@@ -1025,9 +1055,42 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTravelerSpinnerKeyPressed
 
-    private void jLocationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLocationComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLocationComboBoxActionPerformed
+    private void jExit1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jExit1MouseReleased
+        System.exit(0);
+    }//GEN-LAST:event_jExit1MouseReleased
+
+    private void jExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jExitMouseReleased
+        System.exit(0);
+    }//GEN-LAST:event_jExitMouseReleased
+
+    private void outbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outbound_listMousePressed
+        Flight selected = (Flight) ((DefaultListModel) outbound_list.getModel()).getElementAt(outbound_list.getSelectedIndex());
+        manager.getPackage().setOutbound(selected);
+        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+    }//GEN-LAST:event_outbound_listMousePressed
+
+    private void inbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inbound_listMousePressed
+        Flight selected = (Flight) ((DefaultListModel) inbound_list.getModel()).getElementAt(inbound_list.getSelectedIndex());
+        manager.getPackage().setInbound(selected);
+        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+    }//GEN-LAST:event_inbound_listMousePressed
+
+    private void hotel_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotel_listMousePressed
+        Hotel selected = (Hotel) ((DefaultListModel) hotel_list.getModel()).getElementAt(hotel_list.getSelectedIndex());
+        manager.getPackage().setHotel(selected);
+        //jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+    }//GEN-LAST:event_hotel_listMousePressed
+
+    private void tourListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tourListMousePressed
+        DefaultListModel model = (DefaultListModel) tourList.getModel();
+        DayTour selected = (DayTour) model.getElementAt(tourList.getSelectedIndex());
+        if (!manager.getPackage().getDayTours().contains(selected)) {
+            manager.getPackage().addDayTour(selected);
+        } else {
+            manager.getPackage().removeDayTour(selected);
+        }
+        jLabel3.setText(Integer.toString(manager.getPackage().calculatePrice()));
+    }//GEN-LAST:event_tourListMousePressed
 
     /**
      * @param args the command line arguments
@@ -1073,6 +1136,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel flight_preference;
     private javax.swing.JPanel flight_result;
     private javax.swing.JLabel hotel_label1;
+    private javax.swing.JList<String> hotel_list;
     private javax.swing.JPanel hotel_result;
     private javax.swing.JLabel inbound_back;
     private javax.swing.JLabel inbound_flight;
@@ -1089,12 +1153,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jExit;
     private javax.swing.JLabel jExit1;
     private javax.swing.JLabel jInstruction;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> jLocationComboBox;
     private javax.swing.JLabel jLocationLabel;
     private javax.swing.JPanel jReturningCalendar;
     private javax.swing.JLabel jReturningLabel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jTitle;
     private javax.swing.JLabel jTravelerLabel;
     private javax.swing.JSpinner jTravelerSpinner;
@@ -1113,7 +1179,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel search_label;
     private javax.swing.JLabel switch_label;
     private javax.swing.JList<String> tourList;
-    private javax.swing.JScrollPane tourScrollPanel;
     private javax.swing.JPanel tour_result;
     // End of variables declaration//GEN-END:variables
 }
