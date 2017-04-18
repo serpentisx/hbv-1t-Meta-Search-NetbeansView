@@ -566,7 +566,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="901" max="-2" attributes="0"/>
+                              <Component id="tourScrollPanel" min="-2" pref="901" max="-2" attributes="0"/>
                               <EmptySpace pref="130" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -575,14 +575,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="111" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
+                              <Component id="tourScrollPanel" min="-2" pref="506" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                    <Container class="javax.swing.JScrollPane" name="tourScrollPanel">
                       <Properties>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[880, 32767]"/>
@@ -984,6 +984,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLocationComboBoxActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="changeLF(&quot;Nimbus&quot;);"/>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="changeLF(&quot;Windows&quot;);"/>

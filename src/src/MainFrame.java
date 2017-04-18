@@ -290,7 +290,7 @@ public class MainFrame extends javax.swing.JFrame {
         hotel_result = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tour_result = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tourScrollPanel = new javax.swing.JScrollPane();
         tourList = new javax.swing.JList<>();
         preference_panel = new javax.swing.JPanel();
         menuBar = new javax.swing.JPanel();
@@ -460,7 +460,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         outbound_flight.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         outbound_flight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/departure-13x13-icon.png"))); // NOI18N
-        outbound_flight.setText("Keflavík (KEF)  to London (LHR)");
+        outbound_flight.setText("KeflavÃ­k (KEF)  to London (LHR)");
 
         inbound_title.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         inbound_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/arrival-icon.png"))); // NOI18N
@@ -512,7 +512,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         inbound_flight.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         inbound_flight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/departure-13x13-icon.png"))); // NOI18N
-        inbound_flight.setText("Keflavík (KEF)  to London (LHR)");
+        inbound_flight.setText("KeflavÃ­k (KEF)  to London (LHR)");
 
         inbound_forward.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/arrow-right-black.png"))); // NOI18N
         inbound_forward.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -627,14 +627,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         tour_result.setBackground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(880, 32767));
+        tourScrollPanel.setMaximumSize(new java.awt.Dimension(880, 32767));
 
         tourList.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         tourList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tourList.setFixedCellWidth(220);
         tourList.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
         tourList.setVisibleRowCount(-1);
-        jScrollPane1.setViewportView(tourList);
+        tourScrollPanel.setViewportView(tourList);
         tourList.setCellRenderer(new TourResultRenderer());
 
         javax.swing.GroupLayout tour_resultLayout = new javax.swing.GroupLayout(tour_result);
@@ -643,14 +643,14 @@ public class MainFrame extends javax.swing.JFrame {
             tour_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tour_resultLayout.createSequentialGroup()
                 .addGap(184, 184, 184)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tourScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         tour_resultLayout.setVerticalGroup(
             tour_resultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tour_resultLayout.createSequentialGroup()
                 .addContainerGap(111, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tourScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
@@ -793,6 +793,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLocationComboBox.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLocationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keflavik International Airport (KEF), Iceland" }));
         jLocationComboBox.setBorder(null);
+        jLocationComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLocationComboBoxActionPerformed(evt);
+            }
+        });
 
         jDepartureComboBox.setEditable(true);
         jDepartureComboBox.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -987,7 +992,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_day_tour_label1MouseExited
 
     private void day_tour_label1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_day_tour_label1MousePressed
-        change_preference_tab(tour_result);
+        change_preference_tab(tour_result);       
     }//GEN-LAST:event_day_tour_label1MousePressed
 
     private void search_labelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_labelMouseReleased
@@ -1019,6 +1024,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTravelerSpinnerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTravelerSpinnerKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTravelerSpinnerKeyPressed
+
+    private void jLocationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLocationComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLocationComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1086,7 +1095,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLocationLabel;
     private javax.swing.JPanel jReturningCalendar;
     private javax.swing.JLabel jReturningLabel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jTitle;
     private javax.swing.JLabel jTravelerLabel;
     private javax.swing.JSpinner jTravelerSpinner;
@@ -1105,6 +1113,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel search_label;
     private javax.swing.JLabel switch_label;
     private javax.swing.JList<String> tourList;
+    private javax.swing.JScrollPane tourScrollPanel;
     private javax.swing.JPanel tour_result;
     // End of variables declaration//GEN-END:variables
 }
