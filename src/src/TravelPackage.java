@@ -16,9 +16,10 @@ public class TravelPackage {
 	private Vector<DayTour> tours;
 	Customer customer;
 	
-	/* Default constructor */
-
-	/* Instance methods */
+	public TravelPackage() {
+            tours = new Vector();
+        }
+        
 	public int getPrice() {
 		return price;
 	}
@@ -48,15 +49,20 @@ public class TravelPackage {
 	}
 	
 	public int calculatePrice() {
-		
+            try {
+               		
 		price =  outbound.getPrice() + inbound.getPrice();
 		// price += hotel.getPrice();
 		
 		for(int i = 0; i < tours.size(); i++) {
 			price += tours.get(i).getPrice();
-		}
+		} 
+            }
+            catch (NullPointerException e) {
+                
+            }
 		
-		return price;		
+	    return price;		
 	}
 
 	public void setTravellers(int travellers) {

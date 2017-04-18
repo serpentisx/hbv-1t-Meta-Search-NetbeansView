@@ -86,7 +86,7 @@ public class PackageManager {
 			throw new IllegalArgumentException("Date of returning must follow date of arrival.");
 		}
 		LocalDate start = arrivalDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate end = returningDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate end = returningDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		return hsearch.searchHotel(start, end, travellers);
 	}
 	

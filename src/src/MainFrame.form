@@ -105,12 +105,12 @@
                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           <Component id="hotel_label1" min="-2" pref="127" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="day_tour_label1" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="day_tour_label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           <Component id="priceLabel" min="-2" pref="78" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="55" max="32767" attributes="0"/>
+                          <EmptySpace pref="148" max="32767" attributes="0"/>
                           <Component id="jExit1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
@@ -147,7 +147,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExit1MouseClicked"/>
+                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExit1MouseReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="flight_label1">
@@ -183,9 +183,9 @@
                     <Property name="text" type="java.lang.String" value="Hotel"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MouseEntered"/>
-                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MouseExited"/>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MousePressed"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MouseExited"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MouseEntered"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="day_tour_label1">
@@ -239,7 +239,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="10000 USD"/>
+                    <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -318,7 +318,7 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="112" max="32767" attributes="0"/>
+                              <EmptySpace pref="115" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -405,6 +405,9 @@
                             <Property name="fixedCellWidth" type="int" value="160"/>
                             <Property name="visibleRowCount" type="int" value="1"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="outbound_listMousePressed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="outbound_list.setBorder(BorderFactory.createEmptyBorder());&#xa;outbound_list.setLayoutOrientation(JList.HORIZONTAL_WRAP);&#xa;outbound_list.setCellRenderer(new FlightResultRenderer());&#xa;outbound_list.setVisibleRowCount(1);"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -465,6 +468,9 @@
                             <Property name="fixedCellWidth" type="int" value="160"/>
                             <Property name="visibleRowCount" type="int" value="1"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inbound_listMousePressed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="inbound_list.setBorder(BorderFactory.createEmptyBorder());&#xa;inbound_list.setLayoutOrientation(JList.HORIZONTAL_WRAP);&#xa;inbound_list.setCellRenderer(new FlightResultRenderer());&#xa;inbound_list.setVisibleRowCount(1);"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -515,6 +521,11 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="hotel_result">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                       <CardConstraints cardName="card3"/>
@@ -525,28 +536,66 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="185" max="-2" attributes="0"/>
-                              <EmptySpace pref="905" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane2" min="-2" pref="1170" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="280" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="66" max="-2" attributes="0"/>
-                              <EmptySpace pref="462" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" pref="572" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel5">
+                    <Component class="javax.swing.JLabel" name="jLabel1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="This is Hotel"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Lucida Grande" size="22" style="1"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/icons/hotel-dark-icon-mini.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Pick your hotel  "/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jLabel1.setHorizontalTextPosition(SwingConstants.LEFT);"/>
+                      </AuxValues>
                     </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jScrollPane2.getViewport().setOpaque(false);&#xa;jScrollPane2.setViewportBorder(null);&#xa;jScrollPane2.getVerticalScrollBar().setPreferredSize(new Dimension(7,7));&#xa;jScrollPane2.setBorder(BorderFactory.createEmptyBorder());"/>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JList" name="hotel_list">
+                          <Properties>
+                            <Property name="fixedCellHeight" type="int" value="210"/>
+                            <Property name="fixedCellWidth" type="int" value="370"/>
+                            <Property name="layoutOrientation" type="int" value="2"/>
+                            <Property name="visibleRowCount" type="int" value="-1"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_listMousePressed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hotel_list.setCellRenderer(new HotelResultRenderer());&#xa;hotel_list.setBorder(null);&#xa;hotel_list.setBorder(BorderFactory.createEmptyBorder());"/>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="tour_result">
@@ -566,7 +615,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                              <Component id="tourScrollPanel" min="-2" pref="901" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="901" max="-2" attributes="0"/>
                               <EmptySpace pref="130" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -575,14 +624,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="111" max="32767" attributes="0"/>
-                              <Component id="tourScrollPanel" min="-2" pref="506" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JScrollPane" name="tourScrollPanel">
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                       <Properties>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[880, 32767]"/>
@@ -609,6 +658,9 @@
                             <Property name="layoutOrientation" type="int" value="2"/>
                             <Property name="visibleRowCount" type="int" value="-1"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tourListMousePressed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tourList.setCellRenderer(new TourResultRenderer());"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -705,7 +757,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExitMouseClicked"/>
+                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExitMouseReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jInstruction">
@@ -980,13 +1032,7 @@
                         <StringItem index="0" value="Keflavik International Airport (KEF), Iceland"/>
                       </StringArray>
                     </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLocationComboBoxActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="changeLF(&quot;Nimbus&quot;);"/>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="changeLF(&quot;Windows&quot;);"/>
@@ -1041,9 +1087,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="changeLF(&quot;Nimbus&quot;);"/>
