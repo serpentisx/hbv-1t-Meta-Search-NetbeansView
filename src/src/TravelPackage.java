@@ -57,7 +57,6 @@ public class TravelPackage {
                 price = 0;
                 long nights = TimeUnit.DAYS.convert(inbound.getArrivalTime().getTime() 
                         - outbound.getDepartureTime().getTime(), TimeUnit.MILLISECONDS);
-                System.out.println(nights);
                 if(outbound != null) price += outbound.getPrice()*travellers;
                 if(inbound != null)  price += inbound.getPrice()*travellers;
                 if(hotel != null)    price += hotel.getPrice()*nights;
