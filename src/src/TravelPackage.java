@@ -2,9 +2,9 @@ package src;
 import java.util.Vector;
 import hotel.*;
 import tour.DayTour;
-import flight.*;
 
 import flight.Flight;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class TravelPackage {
@@ -14,11 +14,11 @@ public class TravelPackage {
 	private Flight outbound;
 	private Flight inbound;
 	private Hotel hotel;
-	private Vector<DayTour> tours;
+	private ArrayList<DayTour> tours;
 	Customer customer;
 	
 	public TravelPackage() {
-            tours = new Vector();
+            tours = new ArrayList<>();
         }
         
 	public int getPrice() {
@@ -44,7 +44,7 @@ public class TravelPackage {
 		return hotel;
 	}
 
-	public Vector<DayTour> getDayTours() {
+	public ArrayList<DayTour> getDayTours() {
 		return tours;
 	}
 
