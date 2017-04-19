@@ -82,9 +82,11 @@ public class FlightGenerator {
                 String city = s[2].substring(1, s[2].length() - 1);
                 String country = s[3].substring(1, s[3].length() - 1);
                 String airportcode = s[4].substring(1, s[4].length() - 1);
-                
-                Airport ap = new Airport(airportName, city, country, airportcode);
-                airport.add(ap);
+                // Skip airport if airport code length is not 3
+                if(airportcode.length() == 3) {
+                    Airport ap = new Airport(airportName, city, country, airportcode);
+                    airport.add(ap);
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File containing airport codes was not found");
