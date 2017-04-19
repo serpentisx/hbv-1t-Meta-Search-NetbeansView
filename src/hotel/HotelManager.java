@@ -3,10 +3,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 public class HotelManager
 {
-	@SuppressWarnings("unused")
-	private SearchView sv;
-	@SuppressWarnings("unused")
-	private ResultsView rv;
 	private ArrayList<Hotel> hotels;
 	private ArrayList<Hotel> searchedHotels = new ArrayList<Hotel>();
 	private ArrayList<Integer> rpdIDs = new ArrayList<Integer>();
@@ -34,15 +30,6 @@ public class HotelManager
 		}
 }
 	
-
-	public void addSearchView(SearchView sv)
-	{
-		this.sv = sv;
-	}
-	public void addResultsView(ResultsView rv)
-	{
-		this.rv = rv;
-	}
 	public void addReservationManager(ReservationManager rm)
 	{
 		this.reservationManager = rm;
@@ -228,19 +215,19 @@ public class HotelManager
 			if(!allZeroes(cityLocations))
 			{
 				boolean foundCity = false;
-				if( (cityLocations[0]) && (hotelCity.equals("ReykjavÌk")) )
+				if( (cityLocations[0]) && (hotelCity.equals("Reykjav√≠k")) )
 					foundCity=true;
 				
-				if( (cityLocations[1]) && (hotelCity.equals("KeflavÌk")) )
+				if( (cityLocations[1]) && (hotelCity.equals("Keflav√≠k")) )
 					foundCity=true;
 			
 				if( (cityLocations[2]) && (hotelCity.equals("Akureyri")) )
 					foundCity=true;
 			
-				if( (cityLocations[3]) && (hotelCity.equals("Egilsstair")) )
+				if( (cityLocations[3]) && (hotelCity.equals("Egilssta√∞ir")) )
 					foundCity=true;
 			
-				if( (cityLocations[4]) && (hotelCity.equals("Õsafjˆrur")) )
+				if( (cityLocations[4]) && (hotelCity.equals("√çsafj√∂r√∞ur")) )
 					foundCity=true;
 			
 				if(!foundCity)
@@ -290,19 +277,19 @@ public class HotelManager
 				if( (siteLocations[2]==true) && (hotelSite.equals("Blue Lagoon")) )
 					foundSite=true;
 				
-				if( (siteLocations[3]==true) && (hotelSite.equals("ﬁingvellir")) )
+				if( (siteLocations[3]==true) && (hotelSite.equals("√ûingvellir")) )
 					foundSite=true;
 				
-				if( (siteLocations[4]==true) && (hotelSite.equals("Jˆkuls·rlÛn")) )
+				if( (siteLocations[4]==true) && (hotelSite.equals("J√∂kuls√°rl√≥n")) )
 					foundSite=true;
 				
 				if( (siteLocations[5]==true) && (hotelSite.equals("Dettifoss")) )
 					foundSite=true;
 				
-				if( (siteLocations[6]==true) && (hotelSite.equals("Vatnajˆkull")) )
+				if( (siteLocations[6]==true) && (hotelSite.equals("Vatnaj√∂kull")) )
 					foundSite=true;
 				
-				if( (siteLocations[7]==true) && (hotelSite.equals("JÛlah˙si")) )
+				if( (siteLocations[7]==true) && (hotelSite.equals("J√≥lah√∫si√∞")) )
 					foundSite=true;
 				
 				if(!foundSite)
@@ -318,22 +305,22 @@ public class HotelManager
 			{
 				boolean foundTour = false;
 				
-				if( (tourLocations[0]==true) && (tour.equals("Hestafer")) )
+				if( (tourLocations[0]==true) && (tour.equals("Hestafer√∞")) )
 					foundTour=true;
 				
-				if( (tourLocations[1]==true) && (tour.equals("Sˆguganga")) )
+				if( (tourLocations[1]==true) && (tour.equals("S√∂guganga")) )
 					foundTour=true;
 				
 				if( (tourLocations[2]==true) && (tour.equals("Fjallganga")) )
 					foundTour=true;
 				
-				if( (tourLocations[3]==true) && (tour.equals("SkÌafer")) )
+				if( (tourLocations[3]==true) && (tour.equals("Sk√≠√∞afer√∞")) )
 					foundTour=true;
 				
-				if( (tourLocations[4]==true) && (tour.equals("ﬁingvallahringur")) )
+				if( (tourLocations[4]==true) && (tour.equals("√ûingvallahringur")) )
 					foundTour=true;
 				
-				if( (tourLocations[5]==true) && (tour.equals("ReihjÛlat˙r")) )
+				if( (tourLocations[5]==true) && (tour.equals("Rei√∞hj√≥lat√∫r")) )
 					foundTour=true;
 				
 				if(!foundTour)

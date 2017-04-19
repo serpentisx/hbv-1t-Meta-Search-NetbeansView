@@ -6,8 +6,6 @@ import java.awt.event.*;
 import java.time.LocalDate;
 
 public class ReservationManager implements ActionListener {
-
-	ReservationView rv;
 	HotelManager hotelManager;
 	int tempint = 0;
 	private Hotel hotel;
@@ -24,9 +22,7 @@ public class ReservationManager implements ActionListener {
 		//System.out.println (e.getActionCommand());
 	}
 	
-	public void addReservationView(ReservationView r){
-		this.rv = r;
-	}
+
 
 	public void addHotelManager(HotelManager hm)
 	{
@@ -48,11 +44,6 @@ public class ReservationManager implements ActionListener {
 		return reservationID;
 	}
 	
-	
-	public void update(Observable o, Object arg){
-		String send = "IsConfirmed";
-		rv.displayConfirmation(send);
-	}
 	
 	public int writeTempint() {
 		return tempint;

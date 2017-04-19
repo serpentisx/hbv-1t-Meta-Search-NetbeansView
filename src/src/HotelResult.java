@@ -37,21 +37,26 @@ public class HotelResult extends javax.swing.JPanel {
         hotelName = new javax.swing.JLabel();
         rating = new javax.swing.JLabel();
         see_more_label = new javax.swing.JLabel();
+        price = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setOpaque(false);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel_images/hotel_holt.png"))); // NOI18N
-        image.setText("jLabel1");
+        add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, 140));
 
         address.setFont(new java.awt.Font("Malayalam MN", 0, 11)); // NOI18N
         address.setText("Aðalstræti 13");
+        add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 45, 140, 10));
 
         hotelName.setFont(new java.awt.Font("Malayalam MN", 1, 14)); // NOI18N
         hotelName.setText("Hotel Holt");
+        add(hotelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 150, -1));
 
         rating.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel_images/5_stars.png"))); // NOI18N
+        add(rating, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 90, -1));
 
         see_more_label.setBackground(new java.awt.Color(204, 204, 204));
         see_more_label.setText("See more");
@@ -59,39 +64,12 @@ public class HotelResult extends javax.swing.JPanel {
         see_more_label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         see_more_label.setOpaque(true);
         see_more_label.setHorizontalAlignment(JLabel.CENTER);
+        add(see_more_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 80, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hotelName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rating, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(see_more_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(hotelName)
-                        .addGap(0, 0, 0)
-                        .addComponent(address)
-                        .addGap(4, 4, 4)
-                        .addComponent(rating)
-                        .addGap(11, 11, 11)
-                        .addComponent(see_more_label)))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        price.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        price.setForeground(new java.awt.Color(153, 51, 0));
+        price.setText("ISK 2000");
+        add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 86, 150, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -99,6 +77,7 @@ public class HotelResult extends javax.swing.JPanel {
     private javax.swing.JLabel address;
     private javax.swing.JLabel hotelName;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel price;
     private javax.swing.JLabel rating;
     private javax.swing.JLabel see_more_label;
     // End of variables declaration//GEN-END:variables
@@ -117,6 +96,10 @@ public class HotelResult extends javax.swing.JPanel {
 
     public javax.swing.JLabel getRating() {
         return rating;
+    }
+    
+    public javax.swing.JLabel getPrice() {
+        return price;
     }
 
     public javax.swing.JLabel getSee_more_label() {

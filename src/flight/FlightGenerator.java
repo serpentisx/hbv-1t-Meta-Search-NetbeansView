@@ -118,7 +118,9 @@ public class FlightGenerator {
                 String from = ap.getName() + " (" + ap.getAirportCode() + "), " + ap.getCountry();
                 String to = "Keflavik International Airport (KEF), Iceland";
                 
-                Flight flight = new Flight("FI-200", "Icelandair", from, to, departure, arrival, available, price);
+                int flightNumber = (int) (Math.random()*101) + 400;
+                
+                Flight flight = new Flight("FI-" + flightNumber, "Icelandair", from, to, departure, arrival, available, price);
                 flights.add(flight);    
             }
         }
@@ -149,7 +151,9 @@ public class FlightGenerator {
                 String from = ap.getName() + " (" + ap.getAirportCode() + "), " + ap.getCountry();
                 String to = "Keflavik International Airport (KEF), Iceland";
                 
-                Flight flight = new Flight("FI-200", "Icelandair",to, from, departure, arrival, available, price);
+                int flightNumber = (int) (Math.random()*101) + 400;
+                
+                Flight flight = new Flight("FI-" + flightNumber, "Icelandair",to, from, departure, arrival, available, price);
                 flights.add(flight);    
             }
         }

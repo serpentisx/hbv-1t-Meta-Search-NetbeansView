@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.ImageIcon;
 
 public class Hotel {
 	private int hotelID = -1;
@@ -23,6 +24,8 @@ public class Hotel {
 	private String nearestAirport;
 	private String nearestSite;
 	private String nearbyDayTour;
+        private int price;
+        private ImageIcon ratingIcon;
 	
 	public Hotel(int hotelID){
 		this.hotelID = hotelID;
@@ -274,6 +277,21 @@ public class Hotel {
 		//System.out.println("freeRoomsPerDate for "+this.getName()+" now contains "+freeRoomsPerDate.size()+" elements.");
 		//this.freeRoomsPerDate = freeRoomsPerDate;
 	}
+        public void setPrice(int price) {
+            this.price = price;
+        }
+        public int getPrice() {
+            return price;
+        }
+
+    public ImageIcon getRatingIcon() {
+        return ratingIcon;
+    }
+
+    public void setRatingIcon(ImageIcon ratingIcon) {
+        this.ratingIcon = ratingIcon;
+    }
+        
 
 	
 

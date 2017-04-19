@@ -56,7 +56,7 @@ public class TravelPackage {
                 price = 0;
                 if(outbound != null) price += outbound.getPrice();
                 if(inbound != null)  price += inbound.getPrice();
-                if(hotel != null)    price += hotel.getRating()*10000;
+                if(hotel != null)    price += hotel.getPrice();
                 
 		for(int i = 0; i < tours.size(); i++) {
                     price += tours.get(i).getPrice();
