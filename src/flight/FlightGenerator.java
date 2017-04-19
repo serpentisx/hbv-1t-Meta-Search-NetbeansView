@@ -165,17 +165,6 @@ public class FlightGenerator {
     public static void main(String args[]) {
         FlightGenerator generator = new FlightGenerator("airportCodes.txt");
         
-     /*   List<Flight> flights = generator.generateOutboundFlights();
-        System.out.println("Outbound flights size : " + flights.size());
-        for (Flight f : flights) {
-            System.out.println("From : " + f.getOrigin());
-            System.out.println("To : " + f.getDestination());
-            System.out.println("Depart time : " + f.getDepartureTime());
-            System.out.println("Arrival time : " + f.getArrivalTime());
-            System.out.println("Price : " + f.getPrice());
-            System.out.println("--------------\n");
-        }*/
-        
         for (Flight f : generator.searchOutboundFlights(new Date(System.currentTimeMillis() + 259200000), "Tan Son Nhat International Airport (SGN), Vietnam", 0)) {
             System.out.println("From : " + f.getOrigin());
             System.out.println("To : " + f.getDestination());
