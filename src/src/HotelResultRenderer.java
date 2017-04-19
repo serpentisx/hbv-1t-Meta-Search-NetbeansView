@@ -28,7 +28,7 @@ public class HotelResultRenderer extends HotelResult implements ListCellRenderer
         Hotel hotel = (Hotel) value;
         getHotelName().setText(hotel.getName());
         getAddress().setText(hotel.getAddress());
-        getPrice().setText(hotel.getPrice() + " ISK");
+        getPrice().setText(hotel.getPrice() + " ISK / night");
         getRating().setIcon(hotel.getRatingIcon());
         
         return this;

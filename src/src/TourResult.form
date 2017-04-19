@@ -21,23 +21,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="date" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="price" min="-2" max="-2" attributes="0"/>
-                          <Component id="location" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
-          </Group>
-          <Component id="tourName" alignment="1" max="32767" attributes="0"/>
+          <Component id="tourName" alignment="1" pref="220" max="32767" attributes="0"/>
+          <Component id="location" alignment="1" max="32767" attributes="0"/>
+          <Component id="date" alignment="0" max="32767" attributes="0"/>
+          <Component id="price" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -75,6 +62,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="date.setHorizontalAlignment(JLabel.CENTER);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="location">
       <Properties>
@@ -83,6 +73,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Location"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="location.setHorizontalAlignment(JLabel.CENTER);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="price">
       <Properties>
@@ -92,8 +85,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="2000 Kr"/>
+        <Property name="text" type="java.lang.String" value="2000 kr."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="price.setHorizontalAlignment(JLabel.CENTER);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -46,6 +46,10 @@ public class TripResult extends javax.swing.JPanel {
         hotelAddress = new javax.swing.JLabel();
         hotelRating = new javax.swing.JLabel();
         hotelPrice = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        hotel_totalPrice = new javax.swing.JLabel();
+        hotel_nights = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -102,41 +106,59 @@ public class TripResult extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 51, 0));
-        jLabel3.setText("Price:");
-        personal_info.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 84, -1));
+        jLabel3.setText("Price per night:");
+        personal_info.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 130, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 51, 0));
-        jLabel4.setText("Rating:");
-        personal_info.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        jLabel4.setText("Nights:");
+        personal_info.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hotel-dark-icon-40.png"))); // NOI18N
-        jLabel5.setText("  Your hotel");
+        jLabel5.setText("  Your Hotel");
         personal_info.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         hotelName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         hotelName.setText("Stjörnuþoka");
-        personal_info.add(hotelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 104, 400, -1));
+        personal_info.add(hotelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 400, -1));
 
         hotelAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         hotelAddress.setText("geimsteinn@stjarna.is");
-        personal_info.add(hotelAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 133, 400, -1));
+        personal_info.add(hotelAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 400, -1));
 
         hotelRating.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        personal_info.add(hotelRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 165, 400, 20));
+        personal_info.add(hotelRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 400, 20));
 
         hotelPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         hotelPrice.setText("Sprengistjarna 88");
-        personal_info.add(hotelPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 196, 400, -1));
+        personal_info.add(hotelPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 192, 400, 20));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel6.setText("Rating:");
+        personal_info.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel7.setText("Total price:");
+        personal_info.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+
+        hotel_totalPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hotel_totalPrice.setText("Sprengistjarna 88");
+        personal_info.add(hotel_totalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 252, 400, 20));
+
+        hotel_nights.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hotel_nights.setText("Sprengistjarna 88");
+        personal_info.add(hotel_nights, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 222, 400, 20));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/airplane-shape-40.png"))); // NOI18N
-        jLabel10.setText("  Your flights");
+        jLabel10.setText("  Your Flights");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 179, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
@@ -287,7 +309,7 @@ public class TripResult extends javax.swing.JPanel {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/day-tour-dark-icon-40.png"))); // NOI18N
-        jLabel48.setText("  Your day tours");
+        jLabel48.setText("  Your Day Tours");
         personal_info2.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         daytour_list.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -311,13 +333,17 @@ public class TripResult extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(personal_info1, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(personal_info, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(personal_info2, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(package_price, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(package_price, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(personal_info, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personal_info1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1170, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1170, Short.MAX_VALUE)
+                    .addComponent(personal_info2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1170, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,11 +353,12 @@ public class TripResult extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(personal_info, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(personal_info2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(package_price, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(personal_info, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(personal_info2, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(package_price, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -347,6 +374,8 @@ public class TripResult extends javax.swing.JPanel {
     private javax.swing.JLabel hotelName;
     private javax.swing.JLabel hotelPrice;
     private javax.swing.JLabel hotelRating;
+    private javax.swing.JLabel hotel_nights;
+    private javax.swing.JLabel hotel_totalPrice;
     private javax.swing.JLabel inbound_airline;
     private javax.swing.JLabel inbound_arrival;
     private javax.swing.JLabel inbound_arrivaltime;
@@ -376,6 +405,8 @@ public class TripResult extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -481,5 +512,19 @@ public class TripResult extends javax.swing.JPanel {
 
     public javax.swing.JLabel getPackage_price() {
         return package_price;
+    }
+
+    /**
+     * @return the hotel_nights
+     */
+    public javax.swing.JLabel getHotel_nights() {
+        return hotel_nights;
+    }
+
+    /**
+     * @return the hotel_totalPrice
+     */
+    public javax.swing.JLabel getHotel_totalPrice() {
+        return hotel_totalPrice;
     }
 }

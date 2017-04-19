@@ -2,11 +2,10 @@ package src;
 import java.awt.Component;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 import tour.DayTour;
 
@@ -31,8 +30,11 @@ public class TripResultRenderer extends TripResult implements ListCellRenderer {
         getCustomerEmail().setText(p.getCustomer().getEmail());
         getCustomerName().setText(p.getCustomer().getName());
         getCustomerPhone().setText(p.getCustomer().getPhone());
+        
+        int travellers = p.getTravellers();
+        int flightCost = (p.getInbound().getPrice() + p.getOutbound().getPrice())*travellers;
 
-        getFlight_totalPrice().setText(p.getInbound().getPrice() + p.getOutbound().getPrice() + " ISK");
+        getFlight_totalPrice().setText(flightCost + " ISK");
         getInbound_airline().setText(p.getInbound().getAirline());
         getInbound_departure().setText(p.getInbound().getOrigin());
         getInbound_departureTime().setText(new SimpleDateFormat("EEEE, dd. MMMM YYYY - HH:mm", Locale.ENGLISH).format(p.getInbound().getDepartureTime()));
@@ -47,18 +49,21 @@ public class TripResultRenderer extends TripResult implements ListCellRenderer {
         getOutbound_arrivalTime().setText(new SimpleDateFormat("EEEE, dd. MMMM YYYY - HH:mm", Locale.ENGLISH).format(p.getOutbound().getArrivalTime()));
         getOutbound_flightNo().setText(p.getOutbound().getFlightNumber());
 
+        Long diff = p.getInbound().getArrivalTime().getTime() - p.getOutbound().getDepartureTime().getTime();
         getHotelAddress().setText(p.getHotel().getAddress());
         getHotelName().setText(p.getHotel().getName());
         getHotelRating().setIcon(p.getHotel().getRatingIcon());
         getHotelPrice().setText(p.getHotel().getPrice() + " ISK");
+        getHotel_nights().setText(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " night(s)");
+        getHotel_totalPrice().setText(p.getHotel().getPrice() * TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " ISK");
 
-        getPackage_price().setText("Package price: " + p.calculatePrice() + " ISk");
+        getPackage_price().setText("Package price: " + p.calculatePrice() + " ISK");
 
         DefaultListModel dm = new DefaultListModel();
         for (DayTour tour : p.getDayTours()) {
             String name = tour.getNameOfTrip();
             String date = tour.getDate();
-            String price = Integer.toString(tour.getPrice());
+            String price = Integer.toString(tour.getPrice()*travellers);
 
             String result = "<html> - " + name + "<br>" + date + "<br>" + price + " ISK" + "</html>";
             dm.addElement(result);

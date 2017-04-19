@@ -5,6 +5,7 @@ import tour.DayTour;
 import flight.*;
 
 import flight.Flight;
+import java.util.concurrent.TimeUnit;
 
 public class TravelPackage {
 	
@@ -54,16 +55,18 @@ public class TravelPackage {
 	public int calculatePrice() {
             try {
                 price = 0;
-                if(outbound != null) price += outbound.getPrice();
-                if(inbound != null)  price += inbound.getPrice();
-                if(hotel != null)    price += hotel.getPrice();
+                long nights = TimeUnit.DAYS.convert(inbound.getArrivalTime().getTime() 
+                        - outbound.getDepartureTime().getTime(), TimeUnit.MILLISECONDS);
+                System.out.println(nights);
+                if(outbound != null) price += outbound.getPrice()*travellers;
+                if(inbound != null)  price += inbound.getPrice()*travellers;
+                if(hotel != null)    price += hotel.getPrice()*nights;
                 
 		for(int i = 0; i < tours.size(); i++) {
-                    price += tours.get(i).getPrice();
+                    price += tours.get(i).getPrice()*travellers;
 		} 
-            }
-            catch (NullPointerException e) {
-                
+            } catch (NullPointerException e) {
+                System.out.println("Null pointer exception");
             }
 		
 	    return price;		

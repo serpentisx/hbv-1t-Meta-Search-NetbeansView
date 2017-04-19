@@ -148,6 +148,9 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/Multiply_64px_1.png"/>
                     </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExit1MouseReleased"/>
@@ -164,7 +167,10 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/flight-light-icon.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Flight"/>
+                    <Property name="text" type="java.lang.String" value="Flights"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="flight_label1MouseEntered"/>
@@ -183,7 +189,10 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/hotel-light-icon.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Hotel"/>
+                    <Property name="text" type="java.lang.String" value="Hotels"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hotel_label1MouseEntered"/>
@@ -203,6 +212,9 @@
                       <Image iconType="3" name="/icons/day-tour-light-icon.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Day Tours"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="day_tour_label1MouseEntered"/>
@@ -257,6 +269,9 @@
                       <Image iconType="3" name="/icons/Card in Use_64px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Checkout"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jcheckoutMouseEntered"/>
@@ -720,7 +735,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="467" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="474" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jSeparator4" min="-2" pref="240" max="-2" attributes="0"/>
                                       <Component id="jSeparator3" min="-2" pref="240" max="-2" attributes="0"/>
@@ -735,7 +750,7 @@
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="address" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="421" max="32767" attributes="0"/>
+                                  <EmptySpace pref="414" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
@@ -823,14 +838,13 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="20" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="891 xxxx"/>
+                            <Property name="text" type="java.lang.String" value="(+354) 8765432"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
                           </Properties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="phoneMouseClicked"/>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="phone.setBorder(BorderFactory.createEmptyBorder());"/>
@@ -841,7 +855,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="20" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="John..."/>
+                            <Property name="text" type="java.lang.String" value="Hinrik Sn&#xe6;r Gu&#xf0;mundsson"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
@@ -858,7 +872,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="20" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="jhon@xxxxxxx.com"/>
+                            <Property name="text" type="java.lang.String" value="example@email.com"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
@@ -953,16 +967,15 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="679" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane3" min="-2" pref="1170" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="679" max="-2" attributes="0"/>
+                              <Component id="bookNow" min="-2" pref="131" max="-2" attributes="0"/>
+                              <EmptySpace min="43" pref="88" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -977,7 +990,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" max="32767" attributes="0"/>
+                                      <Component id="bookNow" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1011,14 +1024,12 @@
                       <SubComponents>
                         <Component class="javax.swing.JList" name="trip_list">
                           <Properties>
-                            <Property name="fixedCellHeight" type="int" value="1830"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="fixedCellHeight" type="int" value="1900"/>
                             <Property name="fixedCellWidth" type="int" value="1170"/>
                             <Property name="layoutOrientation" type="int" value="2"/>
                             <Property name="visibleRowCount" type="int" value="-1"/>
                           </Properties>
-                          <Events>
-                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="trip_listMousePressed"/>
-                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="trip_list.setCellRenderer(new TripResultRenderer());&#xa;trip_list.setBorder(null);&#xa;trip_list.setBorder(BorderFactory.createEmptyBorder());"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1026,7 +1037,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JLabel" name="jLabel6">
+                    <Component class="javax.swing.JLabel" name="bookNow">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="1"/>
@@ -1046,7 +1057,7 @@
                         <Property name="opaque" type="boolean" value="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseReleased"/>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bookNowMouseReleased"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1128,6 +1139,9 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/Multiply_64px_1.png"/>
                     </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jExitMouseReleased"/>
@@ -1144,7 +1158,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Instruction"/>
+                    <Property name="text" type="java.lang.String" value="Instructions"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jInstructionMousePressed"/>
@@ -1176,14 +1193,14 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/Snowflake_48px.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Book your trip  "/>
+                    <Property name="text" type="java.lang.String" value="Customize your own trip to Iceland"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTitle.setHorizontalTextPosition(SwingConstants.LEFT);"/>
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="28" y="28" width="320" height="66"/>
+                      <AbsoluteConstraints x="90" y="40" width="640" height="66"/>
                     </Constraint>
                   </Constraints>
                 </Component>

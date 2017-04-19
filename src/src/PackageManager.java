@@ -22,7 +22,6 @@ import tour.*;
 public class PackageManager {
 	
 	private TravelPackage packageInMaking;
-	// private Vector<String> codes; // all valid airport codes
 	private FlightGenerator fsearch;
 	private HotelManager hsearch;
 	private DayTourSearch dtsearch;
@@ -39,7 +38,6 @@ public class PackageManager {
 		this.fres = fres;
 		this.hres = hres;
 		this.dtres = dtres;
-		// this.codes = generateCodes();
 	}	
 	
 	public TravelPackage getPackage() {
@@ -64,16 +62,10 @@ public class PackageManager {
 		}
 	}
 	
-	/* 
-	 * If @param inbound is true, this method searches for inbound flights from
-	 * KEF airport to the destination specified by @param airportCode. 
-	 * Otherwise the method searches for outbound flights from the origin specified
-	 * by @param airportCode to KEF airport
-	 */
 	public List<Flight> searchFlights(Date departureDate, String origin, String destination) {
 		int travellers = packageInMaking.getTravellers();
 		if(departureDate == null) {
-			//throw new IllegalArgumentException("Please select both the dates of arrival and return");
+			throw new IllegalArgumentException("Please select both the dates of arrival and return");
 		}
 		return fsearch.search(departureDate, origin, destination, travellers);
 	}	
@@ -98,24 +90,4 @@ public class PackageManager {
 		}
 		return dtsearch.search(arrivalDate, returningDate, getPackage().getTravellers());		
 	}
-	
-	/*
-	private static Vector<String> generateCodes() {
-		Vector<String> codes = new Vector<>();
-		try (BufferedReader br = new BufferedReader(new FileReader(new File("airportCodes.txt")))) {
-			String line; String[] s;
-		    while ((line = br.readLine()) != null) {
-		       s = line.split(",");		       
-		       if(s[4].length() == 5) {
-		    	   codes.add(s[4].substring(1, 4));
-		       }
-		    }
-		} catch (FileNotFoundException e) {
-			System.out.println("File containing airport codes was not found");
-		} catch (IOException e) {
-			System.out.println("Reading airport codes resulted in an IOException");
-		}
-	    return codes;
-	}*/
-
 }

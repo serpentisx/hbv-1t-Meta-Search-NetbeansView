@@ -58,9 +58,13 @@ public class MainFrame extends javax.swing.JFrame {
     private Customer customer = new Customer();
     private PackageManager manager;
     
+    private boolean namePressed = false;
+    private boolean emailPressed = false;
+    private boolean phonePressed = false;
+    private boolean addressPressed = false;
     public MainFrame() {
         initComponents();
-        manager = new PackageManager(new FlightGenerator("src/airportCodes.txt"), new HotelManager(true), new DayTourSearchMock(), null, new ReservationManager(), null);
+        manager = new PackageManager(new FlightGenerator("src/airportCodes.txt"), new HotelManager(true), new DayTourSearchMock(), new FlightReservationMock(), new ReservationManager(), new DayTourReservationMock());
         toursSelected = new ArrayList<>();
 	generateComboboxModel();  
         generateHotelStars();
@@ -87,13 +91,24 @@ public class MainFrame extends javax.swing.JFrame {
             Flight out = scrollToDate(outbound_list, getDepartDate());
             manager.getPackage().setInbound(in);
             manager.getPackage().setOutbound(out);
-            jLabel3.setText("ISK " + Integer.toString(manager.getPackage().calculatePrice()));
+            displayPrice();
             slideLeft();
         } catch (NullPointerException e) {
             e.printStackTrace();
             ImageIcon p = new ImageIcon(getClass().getResource("/icons/warning.png"));
             JOptionPane.showMessageDialog(null, "Fill in all inputs", "Warning:", JOptionPane.WARNING_MESSAGE, p);
         }
+    }
+    
+    private void displayPrice() {
+        String tmp = Integer.toString(manager.getPackage().calculatePrice());
+        String price = "";
+        // Add thousand separators
+        for(int i = tmp.length() - 1, j = 1; i >= 0; i--, j++) {
+            price = tmp.charAt(i) + price;
+            if(j%3 == 0 && i!=0) price = "," + price;
+        }
+        jLabel3.setText(price + " ISK");
     }
     
     private void searchHotels() {
@@ -352,7 +367,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         trip_list = new javax.swing.JList<>();
-        jLabel6 = new javax.swing.JLabel();
+        bookNow = new javax.swing.JLabel();
         preference_panel = new javax.swing.JPanel();
         menuBar = new javax.swing.JPanel();
         jExit = new javax.swing.JLabel();
@@ -399,6 +414,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Multiply_64px_1.png"))); // NOI18N
+        jExit1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jExit1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jExit1MouseReleased(evt);
@@ -408,7 +424,8 @@ public class MainFrame extends javax.swing.JFrame {
         flight_label1.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         flight_label1.setForeground(new java.awt.Color(250, 250, 250));
         flight_label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flight-light-icon.png"))); // NOI18N
-        flight_label1.setText("Flight");
+        flight_label1.setText("Flights");
+        flight_label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         flight_label1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 flight_label1MouseEntered(evt);
@@ -424,7 +441,8 @@ public class MainFrame extends javax.swing.JFrame {
         hotel_label1.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         hotel_label1.setForeground(new java.awt.Color(250, 250, 250));
         hotel_label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hotel-light-icon.png"))); // NOI18N
-        hotel_label1.setText("Hotel");
+        hotel_label1.setText("Hotels");
+        hotel_label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         hotel_label1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hotel_label1MouseEntered(evt);
@@ -441,6 +459,7 @@ public class MainFrame extends javax.swing.JFrame {
         day_tour_label1.setForeground(new java.awt.Color(250, 250, 250));
         day_tour_label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/day-tour-light-icon.png"))); // NOI18N
         day_tour_label1.setText("Day Tours");
+        day_tour_label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         day_tour_label1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 day_tour_label1MouseEntered(evt);
@@ -473,6 +492,7 @@ public class MainFrame extends javax.swing.JFrame {
         jcheckout.setForeground(new java.awt.Color(255, 255, 255));
         jcheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Card in Use_64px.png"))); // NOI18N
         jcheckout.setText("Checkout");
+        jcheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jcheckout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jcheckoutMouseEntered(evt);
@@ -790,7 +810,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4.setText("Address:");
 
         phone.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        phone.setText("891 xxxx");
+        phone.setText("(+354) 8765432");
         phone.setBorder(null);
         phone.setBorder(BorderFactory.createEmptyBorder());
         phone.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -798,14 +818,9 @@ public class MainFrame extends javax.swing.JFrame {
                 phoneMouseClicked(evt);
             }
         });
-        phone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneActionPerformed(evt);
-            }
-        });
 
         name.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        name.setText("John...");
+        name.setText("Hinrik Snær Guðmundsson");
         name.setBorder(null);
         name.setBorder(BorderFactory.createEmptyBorder());
         name.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -815,7 +830,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         email.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        email.setText("jhon@xxxxxxx.com");
+        email.setText("example@email.com");
         email.setBorder(null);
         email.setBorder(BorderFactory.createEmptyBorder());
         email.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -858,7 +873,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(467, 467, 467)
+                .addGap(474, 474, 474)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -872,7 +887,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jLabel4)
                     .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(414, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jNext)
@@ -933,29 +948,25 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/travel.png"))); // NOI18N
         jLabel5.setText("Confirm package  ");
 
-        trip_list.setFixedCellHeight(1830);
+        trip_list.setEnabled(false);
+        trip_list.setFixedCellHeight(1900);
         trip_list.setFixedCellWidth(1170);
         trip_list.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
         trip_list.setVisibleRowCount(-1);
-        trip_list.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                trip_listMousePressed(evt);
-            }
-        });
         jScrollPane3.setViewportView(trip_list);
         trip_list.setCellRenderer(new TripResultRenderer());
         trip_list.setBorder(null);
         trip_list.setBorder(BorderFactory.createEmptyBorder());
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Book now");
-        jLabel6.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(153, 153, 153)));
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.setOpaque(true);
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        bookNow.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bookNow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bookNow.setText("Book now");
+        bookNow.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(153, 153, 153)));
+        bookNow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bookNow.setOpaque(true);
+        bookNow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel6MouseReleased(evt);
+                bookNowMouseReleased(evt);
             }
         });
 
@@ -964,14 +975,14 @@ public class MainFrame extends javax.swing.JFrame {
         confirm_infoLayout.setHorizontalGroup(
             confirm_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirm_infoLayout.createSequentialGroup()
-                .addGroup(confirm_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(confirm_infoLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(679, 679, 679)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jLabel5)
+                .addGap(679, 679, 679)
+                .addComponent(bookNow, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 88, Short.MAX_VALUE))
+            .addGroup(confirm_infoLayout.createSequentialGroup()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         confirm_infoLayout.setVerticalGroup(
             confirm_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -983,7 +994,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(0, 11, Short.MAX_VALUE))
                     .addGroup(confirm_infoLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(bookNow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1019,6 +1030,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Multiply_64px_1.png"))); // NOI18N
+        jExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jExitMouseReleased(evt);
@@ -1028,7 +1040,8 @@ public class MainFrame extends javax.swing.JFrame {
         jInstruction.setBackground(new java.awt.Color(255, 255, 255));
         jInstruction.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jInstruction.setForeground(new java.awt.Color(255, 255, 255));
-        jInstruction.setText("Instruction");
+        jInstruction.setText("Instructions");
+        jInstruction.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jInstruction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jInstructionMousePressed(evt);
@@ -1067,8 +1080,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTitle.setFont(new java.awt.Font("Segoe UI Semibold", 1, 35)); // NOI18N
         jTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Snowflake_48px.png"))); // NOI18N
-        jTitle.setText("Book your trip  ");
-        flight_preference.add(jTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 28, 320, 66));
+        jTitle.setText("Customize your own trip to Iceland");
+        flight_preference.add(jTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 640, 66));
         jTitle.setHorizontalTextPosition(SwingConstants.LEFT);
 
         jDepartureLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
@@ -1288,19 +1301,19 @@ public class MainFrame extends javax.swing.JFrame {
     private void outbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outbound_listMousePressed
         Flight selected = (Flight) ((DefaultListModel) outbound_list.getModel()).getElementAt(outbound_list.getSelectedIndex());
         manager.getPackage().setOutbound(selected);
-        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
+        displayPrice();
     }//GEN-LAST:event_outbound_listMousePressed
 
     private void inbound_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inbound_listMousePressed
         Flight selected = (Flight) ((DefaultListModel) inbound_list.getModel()).getElementAt(inbound_list.getSelectedIndex());
         manager.getPackage().setInbound(selected);
-        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
+        displayPrice();
     }//GEN-LAST:event_inbound_listMousePressed
 
     private void hotel_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hotel_listMousePressed
         Hotel selected = (Hotel) ((DefaultListModel) hotel_list.getModel()).getElementAt(hotel_list.getSelectedIndex());
         manager.getPackage().setHotel(selected);
-        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
+        displayPrice();
     }//GEN-LAST:event_hotel_listMousePressed
 
     private void tourListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tourListMousePressed
@@ -1319,11 +1332,11 @@ public class MainFrame extends javax.swing.JFrame {
             manager.getPackage().removeDayTour(selected);
         }
         
-        jLabel3.setText("ISK "+Integer.toString(manager.getPackage().calculatePrice()));
+        displayPrice();
     }//GEN-LAST:event_tourListMousePressed
 
     private void jInstructionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jInstructionMousePressed
-        Instruction a = new Instruction(this, true);
+        Instructions a = new Instructions(this, true);
         a.setVisible(true);
     }//GEN-LAST:event_jInstructionMousePressed
 
@@ -1355,35 +1368,40 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jNextMousePressed
 
-    private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneActionPerformed
-
     private void nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseClicked
-        name.setText("");
+        if (namePressed == false){
+            name.setText("");
+            namePressed = true;
+        }
     }//GEN-LAST:event_nameMouseClicked
 
     private void phoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phoneMouseClicked
-        phone.setText("");
+        if (phonePressed == false){
+            phone.setText("");
+            phonePressed = true;
+        }
     }//GEN-LAST:event_phoneMouseClicked
 
     private void emailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseClicked
-        email.setText("");        // TODO add your handling code here:
+        if (emailPressed == false){
+            email.setText("");    
+            emailPressed = true;
+        }
     }//GEN-LAST:event_emailMouseClicked
 
     private void addressMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addressMouseClicked
-        address.setText("");        // TODO add your handling code here:
+        if (addressPressed == false){
+            address.setText("");
+            addressPressed = true;
+        }
     }//GEN-LAST:event_addressMouseClicked
 
-    private void trip_listMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trip_listMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trip_listMousePressed
-
-    private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
+    private void bookNowMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookNowMouseReleased
         String id = UUID.randomUUID().toString().substring(0, 12);
         ImageIcon d = new ImageIcon(getClass().getResource("/icons/success-icon.png"));
         JOptionPane.showMessageDialog(null, "Your package has been successfully booked. Your booking id is: "  + id, "Booked!", JOptionPane.WARNING_MESSAGE, d);
-    }//GEN-LAST:event_jLabel6MouseReleased
+        manager.bookPackage();
+    }//GEN-LAST:event_bookNowMouseReleased
 
     /**
      * @param args the command line arguments
@@ -1424,6 +1442,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JLabel back_label;
+    private javax.swing.JLabel bookNow;
     private javax.swing.JPanel confirm_info;
     private javax.swing.JPanel container;
     private javax.swing.JPanel customer_info;
@@ -1453,7 +1472,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jLocationComboBox;

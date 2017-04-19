@@ -39,12 +39,13 @@ public class FlightResult extends javax.swing.JPanel {
 
         weekday.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
         weekday.setText("Fri");
-        add(weekday, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 0, 30, -1));
+        weekday.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(weekday, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 160, -1));
 
         price.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         price.setForeground(new java.awt.Color(153, 51, 0));
         price.setText("$ 250");
-        price.setHorizontalAlignment(JLabel.CENTER);
+        price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 40));
 
         time.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
@@ -54,7 +55,8 @@ public class FlightResult extends javax.swing.JPanel {
 
         day.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
         day.setText("24 MAR");
-        add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, -1));
+        day.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
