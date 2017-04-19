@@ -1399,7 +1399,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void bookNowMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookNowMouseReleased
         String id = UUID.randomUUID().toString().substring(0, 12);
         ImageIcon d = new ImageIcon(getClass().getResource("/icons/success-icon.png"));
-        JOptionPane.showMessageDialog(null, "Your package has been successfully booked. Your booking id is: "  + id, "Booked!", JOptionPane.WARNING_MESSAGE, d);
+        JOptionPane.showMessageDialog(null, "Your package has been successfully booked. Your booking number is: "  + id, "Booked!", JOptionPane.WARNING_MESSAGE, d);
         manager.bookPackage();
     }//GEN-LAST:event_bookNowMouseReleased
 
